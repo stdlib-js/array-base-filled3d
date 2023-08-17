@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2023 The Stdlib Authors.
@@ -16,31 +16,30 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { Collection } from '@stdlib/types/array';
 
 /**
-* Create a filled three-dimensional nested array.
+* Returns a filled three-dimensional nested array.
 *
-* @module @stdlib/array-base-filled3d
+* @param value - fill value
+* @param shape - array shape
+* @returns output array
 *
 * @example
-* var filled3d = require( '@stdlib/array-base-filled3d' );
-*
 * var out = filled3d( 0.0, [ 1, 1, 3 ] );
 * // returns [ [ [ 0.0, 0.0, 0.0 ] ] ]
 *
 * @example
-* var filled3d = require( '@stdlib/array-base-filled3d' );
-*
-* var out = filled3d( 'beep', [ 1, 3, 1 ] );
-* // returns [ [ [ 'beep' ], [ 'beep' ], [ 'beep' ] ] ]
+* var out = filled3d( 'beep', [ 1, 1, 3 ] );
+* // returns [ [ [ 'beep', 'beep', 'beep' ] ] ]
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function filled3d<T = unknown>( value: T, shape: Collection<number> ): Array<Array<Array<T>>>;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = filled3d;
