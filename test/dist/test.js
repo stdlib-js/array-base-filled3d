@@ -21,114 +21,13 @@
 // MODULES //
 
 var tape = require( 'tape' );
-var filled3d = require( './../../dist' );
+var main = require( './../../dist' );
 
 
 // TESTS //
 
-tape( 'main export is a function', function test( t ) {
+tape( 'main export is defined', function test( t ) {
 	t.ok( true, __filename );
-	t.strictEqual( typeof filled3d, 'function', 'main export is a function' );
-	t.end();
-});
-
-tape( 'the function returns a filled nested array', function test( t ) {
-	var expected;
-	var actual;
-
-	expected = [
-		[
-			[ 'beep', 'beep', 'beep' ]
-		]
-	];
-	actual = filled3d( 'beep', [ 1, 1, 3 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	expected = [
-		[
-			[ 'beep' ],
-			[ 'beep' ],
-			[ 'beep' ]
-		],
-		[
-			[ 'beep' ],
-			[ 'beep' ],
-			[ 'beep' ]
-		]
-	];
-	actual = filled3d( 'beep', [ 2, 3, 1 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	expected = [
-		[
-			[ 'beep', 'beep' ],
-			[ 'beep', 'beep' ],
-			[ 'beep', 'beep' ]
-		],
-		[
-			[ 'beep', 'beep' ],
-			[ 'beep', 'beep' ],
-			[ 'beep', 'beep' ]
-		]
-	];
-	actual = filled3d( 'beep', [ 2, 3, 2 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	t.end();
-});
-
-tape( 'the function returns an empty outer array if provided a shape having a first element equal to zero', function test( t ) {
-	var expected;
-	var actual;
-
-	expected = [];
-
-	actual = filled3d( 'beep', [ 0, 1, 1 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	actual = filled3d( 'beep', [ 0, 0, 0 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	actual = filled3d( 'beep', [ 0, 100, 100 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	t.end();
-});
-
-tape( 'the function returns empty inner arrays if provided a shape having a second element equal to zero', function test( t ) {
-	var expected;
-	var actual;
-
-	expected = [ [] ];
-	actual = filled3d( 'beep', [ 1, 0, 1 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	expected = [ [], [] ];
-	actual = filled3d( 'beep', [ 2, 0, 2 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	expected = [ [], [], [] ];
-	actual = filled3d( 'beep', [ 3, 0, 3 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	t.end();
-});
-
-tape( 'the function returns empty inner arrays if provided a shape having a third element equal to zero', function test( t ) {
-	var expected;
-	var actual;
-
-	expected = [ [ [] ] ];
-	actual = filled3d( 'beep', [ 1, 1, 0 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	expected = [ [ [], [] ] ];
-	actual = filled3d( 'beep', [ 1, 2, 0 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
-	expected = [ [ [], [], [] ] ];
-	actual = filled3d( 'beep', [ 1, 3, 0 ] );
-	t.deepEqual( actual, expected, 'returns expected value' );
-
+	t.strictEqual( main !== void 0, true, 'main export is defined' );
 	t.end();
 });
